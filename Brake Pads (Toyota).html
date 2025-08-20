@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Showvroom | Car Part Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hubot+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Hubot Sans", sans-serif;
+      }
+      .brand-bg {
+        background-color: #093667;
+      }
+      .brand-text {
+        color: #093667;
+      }
+      .cta-btn,
+      .cta-btn-outline {
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 1.125rem;
+        padding: 0.75rem 2.5rem;
+        transition: background 0.3s, color 0.3s, border 0.3s;
+      }
+      .cta-btn {
+        background: #093667;
+        color: #fff;
+      }
+      .cta-btn:hover {
+        background: #002135;
+      }
+      .cta-btn-outline {
+        color: #093667;
+        border: 2px solid #093667;
+        background: #fff;
+      }
+      .cta-btn-outline:hover {
+        background: #f3f4f6;
+      }
+      /* Thumb active border */
+      .thumb-active {
+        border-color: #093667 !important;
+      }
+      /* Modal styles */
+      .modal-bg {
+        background: rgba(0, 0, 0, 0.7);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+      <div
+        class="container mx-auto px-4 md:px-8 py-6 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center">
+            <img
+              src="Logo/The ShowVroom logos TEST-11-LOGO V2.png"
+              alt="The ShowVroom Logo"
+              class="h-14 w-14 rounded-full brand-bg object-contain mr-2"
+            />
+            <span class="brand-text text-xl md:text-2xl font-bold"
+              >The Showvroom</span
+            >
+          </a>
+        </div>
+        <nav class="hidden md:flex space-x-6 items-center">
+          <a
+            href="index.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Home</a
+          >
+          <a
+            href="Buy a car.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Buy a Car</a
+          >
+          <a
+            href="Sell a car.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Sell My Car</a
+          >
+          <a
+            href="Car Part Marketplace.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Car Parts</a
+          >
+          <a
+            href="about us.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >About Us</a
+          >
+          <a
+            href="contact us.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Contact Us</a
+          >
+        </nav>
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white py-2 px-4 shadow-lg"
+      >
+        <a href="index.html" class="block py-2 text-gray-700 hover:brand-text"
+          >Home</a
+        >
+        <a
+          href="Buy a car.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Buy a Car</a
+        >
+        <a
+          href="Sell a car.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Sell My Car</a
+        >
+        <a
+          href="Car Part Marketplace.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Car Parts</a
+        >
+        <a
+          href="about us.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >About Us</a
+        >
+        <a
+          href="Contact us.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Contact Us</a
+        >
+      </div>
+    </header>
+
+    <!-- PART DETAILS SECTION with Ads -->
+    <section class="py-14 bg-white relative">
+      <div class="container mx-auto px-4 md:px-8">
+        <div
+          class="relative flex flex-col lg:flex-row items-start gap-12 max-w-5xl mx-auto"
+        >
+          <!-- Left Banner (centered) -->
+          <div
+            class="hidden lg:flex flex-col justify-center items-center absolute left-[-180px] top-0 h-full"
+            style="width: 160px"
+          >
+            <a href="#" target="_blank">
+              <img
+                src="Advertisement/TWS-3-160x380.png"
+                alt="Advertisement Left"
+                class="rounded-xl shadow-lg w-[160px] h-[380px] object-cover"
+              />
+            </a>
+          </div>
+
+          <!-- Right Banner (centered) -->
+          <div
+            class="hidden lg:flex flex-col justify-center items-center absolute right-[-180px] top-0 h-full"
+            style="width: 160px"
+          >
+            <a href="#" target="_blank">
+              <img
+                src="Advertisement/TWS-3-160x380.png"
+                alt="Advertisement Right"
+                class="rounded-xl shadow-lg w-[160px] h-[380px] object-cover"
+              />
+            </a>
+          </div>
+
+          <!-- Left: Part Image + Gallery Thumbnails -->
+          <div class="flex-1 max-w-md">
+            <div class="relative">
+              <img
+                id="mainImage"
+                src="Parts/pexels-artempodrez-8985455.jpg"
+                alt="Toyota Brake Pads"
+                class="rounded-3xl shadow-md w-full object-cover mb-6 cursor-zoom-in"
+                style="cursor: pointer"
+                onclick="openModal(mainImage.src)"
+              />
+              <button
+                type="button"
+                class="absolute right-2 top-2 z-10 bg-white rounded-full p-2 shadow hover:bg-gray-100"
+                onclick="downloadImage(mainImage.src)"
+                title="Download picture"
+              >
+                <i class="fas fa-download text-xl brand-text"></i>
+              </button>
+            </div>
+            <div class="flex gap-3 overflow-x-auto">
+              <img
+                src="Parts/pexels-cottonbro-7565157.jpg"
+                alt="Thumb 1"
+                class="w-20 h-20 object-cover rounded-lg border-2 cursor-pointer thumb thumb-active"
+                onclick="changeMainImage(0)"
+              />
+              <img
+                src="Parts/pexels-cottonbro-7565165.jpg"
+                alt="Thumb 2"
+                class="w-20 h-20 object-cover rounded-lg border-2 border-transparent cursor-pointer thumb"
+                onclick="changeMainImage(1)"
+              />
+              <img
+                src="Parts/pexels-daniel-andraski-197681005-13065689.jpg"
+                alt="Thumb 3"
+                class="w-20 h-20 object-cover rounded-lg border-2 border-transparent cursor-pointer thumb"
+                onclick="changeMainImage(2)"
+              />
+              <img
+                src="Parts/pexels-geralt-21694.jpg"
+                alt="Thumb 4"
+                class="w-20 h-20 object-cover rounded-lg border-2 border-transparent cursor-pointer thumb"
+                onclick="changeMainImage(3)"
+              />
+              <img
+                src="Parts/pexels-lilartsy-1683406.jpg"
+                alt="Thumb 5"
+                class="w-20 h-20 object-cover rounded-lg border-2 border-transparent cursor-pointer thumb"
+                onclick="changeMainImage(4)"
+              />
+            </div>
+          </div>
+
+          <!-- Right: Part Info -->
+          <div class="flex-1 w-full">
+            <h1 class="text-3xl md:text-4xl font-bold brand-text mb-4">
+              Toyota Genuine Brake Pads (Front)
+            </h1>
+            <div class="text-xl brand-text font-semibold mb-2">Price: $40</div>
+            <div class="text-gray-600 mb-4">Condition: New</div>
+            <div class="text-gray-600 mb-4">
+              Compatible Models: Corolla, Hilux, Fortuner
+            </div>
+            <div class="text-gray-600 mb-4">Location: Kinshasa, DRC</div>
+            <div class="bg-gray-100 rounded-lg p-4 mb-6">
+              <h2 class="text-lg font-bold mb-2 brand-text">Description</h2>
+              <p class="text-gray-700">
+                Get enhanced braking performance and safety with these genuine
+                Toyota front brake pads. Suitable for various models. OEM
+                certified. Comes with manufacturer warranty.
+              </p>
+            </div>
+            <div class="bg-gray-50 rounded-lg p-4 mb-6">
+              <h2 class="text-lg font-bold mb-2 brand-text">Seller Info</h2>
+              <p>
+                <span class="font-semibold text-gray-800">Vendor:</span>
+                AutoParts DRC
+              </p>
+              <p>
+                <span class="font-semibold text-gray-800">Contact:</span> +243
+                81 234 5678
+              </p>
+              <p>
+                <span class="font-semibold text-gray-800">Email:</span>
+                <a href="mailto:sales@autopartsdrc.com"
+                  >sales@autopartsdrc.com</a
+                >
+              </p>
+            </div>
+            <a
+              href="mailto:sales@autopartsdrc.com?subject=Enquiry about Toyota Genuine Brake Pads"
+              class="cta-btn w-full sm:w-auto block text-center"
+              >Contact Seller</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal for full-size image -->
+    <div
+      id="imgModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center modal-bg"
+      onclick="closeModal()"
+    >
+      <div
+        class="relative max-w-4xl w-full mx-auto flex items-center justify-center"
+        onclick="event.stopPropagation()"
+      >
+        <img
+          id="modalImg"
+          src=""
+          alt="Full size"
+          class="w-full h-auto rounded-xl shadow-lg"
+        />
+        <a
+          id="downloadLink"
+          href=""
+          download
+          class="absolute top-3 right-3 bg-white rounded-full p-2 shadow hover:bg-gray-100"
+          title="Download picture"
+        >
+          <i class="fas fa-download text-xl brand-text"></i>
+        </a>
+        <button
+          type="button"
+          class="absolute top-3 left-3 bg-white rounded-full p-2 shadow hover:bg-gray-100"
+          onclick="closeModal()"
+          title="Close"
+        >
+          <i class="fas fa-times text-xl text-gray-600"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- RELATED PARTS SUGGESTION -->
+    <section class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4 md:px-8">
+        <h2 class="text-2xl font-bold brand-text mb-8">Related Parts</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md transition hover:shadow-lg"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1511715281207-70bdee4c9a91?auto=format&fit=crop&w=400&q=80"
+              alt="Engine Oil"
+              class="w-full h-40 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-2">Engine Oil (Castrol)</h3>
+              <div class="brand-text font-semibold mb-2">From $25</div>
+              <a href="#" class="block text-center cta-btn-outline"
+                >View Part</a
+              >
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md transition hover:shadow-lg"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80"
+              alt="Car Battery"
+              class="w-full h-40 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-lg font-bold mb-2">Car Battery (Nissan)</h3>
+              <div class="brand-text font-semibold mb-2">From $55</div>
+              <a href="#" class="block text-center cta-btn-outline"
+                >View Part</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6 mt-6">
+      <div class="container mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">The Showvroom</h3>
+            <p class="mb-4">
+              Your trusted car marketplace in the DRC, connecting buyers and
+              sellers nationwide.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="hover:text-blue-300">Home</a></li>
+              <li>
+                <a href="Buy a car.html" class="hover:text-blue-300"
+                  >Buy a Car</a
+                >
+              </li>
+              <li>
+                <a href="Sell a car.html" class="hover:text-blue-300"
+                  >Sell a Car</a
+                >
+              </li>
+              <li>
+                <a href="Car Part Marketplace.html" class="hover:text-blue-300"
+                  >Car Parts</a
+                >
+              </li>
+              <li>
+                <a href="about us.html" class="hover:text-blue-300">About Us</a>
+              </li>
+              <li>
+                <a href="Contact us.html" class="hover:text-blue-300"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Popular Brands</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-blue-300">Toyota</a></li>
+              <li><a href="#" class="hover:text-blue-300">Nissan</a></li>
+              <li><a href="#" class="hover:text-blue-300">Mitsubishi</a></li>
+              <li><a href="#" class="hover:text-blue-300">BMW</a></li>
+              <li><a href="#" class="hover:text-blue-300">Mercedes</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-3"></i>123 Avenue de la
+                Libération, Kinshasa, DRC
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone-alt mr-3"></i>+243 81 234 5678
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3"></i>info@showvroomdrc.com
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-6">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="mb-4 md:mb-0">
+              © 2025 The Showvroom. All rights reserved.
+            </p>
+            <div class="flex space-x-6">
+              <a href="#" class="hover:text-blue-300">Privacy Policy</a>
+              <a href="#" class="hover:text-blue-300">Terms of Service</a>
+              <a href="#" class="hover:text-blue-300">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div
+      id="imgModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center modal-bg"
+      onclick="closeModal()"
+    >
+      <div
+        class="relative max-w-4xl w-full mx-auto flex items-center justify-center"
+        onclick="event.stopPropagation()"
+      >
+        <img
+          id="modalImg"
+          src=""
+          alt="Full size"
+          class="w-full h-auto rounded-xl shadow-lg"
+        />
+        <a
+          id="downloadLink"
+          href=""
+          download
+          class="absolute top-3 right-3 bg-white rounded-full p-2 shadow hover:bg-gray-100"
+          title="Download picture"
+          ><i class="fas fa-download text-xl brand-text"></i
+        ></a>
+        <button
+          type="button"
+          class="absolute top-3 left-3 bg-white rounded-full p-2 shadow hover:bg-gray-100"
+          onclick="closeModal()"
+          title="Close"
+        >
+          <i class="fas fa-times text-xl text-gray-600"></i>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const images = [
+        "Parts/pexels-artempodrez-8985455.jpg",
+        "Parts/pexels-cottonbro-7565157.jpg",
+        "Parts/pexels-cottonbro-7565165.jpg",
+        "Parts/pexels-daniel-andraski-197681005-13065689.jpg",
+        "Parts/pexels-geralt-21694.jpg",
+        "Parts/pexels-lilartsy-1683406.jpg",
+      ];
+      const mainImage = document.getElementById("mainImage");
+      const thumbs = document.querySelectorAll(".thumb");
+
+      function changeMainImage(index) {
+        const selectedThumb = thumbs[index];
+        const currentMainSrc = mainImage.src;
+
+        mainImage.src = selectedThumb.src;
+        selectedThumb.src = currentMainSrc;
+
+        thumbs.forEach((thumb) => thumb.classList.remove("thumb-active"));
+        thumbs[index].classList.add("thumb-active");
+      }
+
+      function openModal(src) {
+        document.getElementById("imgModal").classList.remove("hidden");
+        document.getElementById("modalImg").src = src;
+        document.getElementById("downloadLink").href = src;
+      }
+      function closeModal() {
+        document.getElementById("imgModal").classList.add("hidden");
+        document.getElementById("modalImg").src = "";
+      }
+      function downloadImage(imgUrl) {
+        const link = document.createElement("a");
+        link.href = imgUrl;
+        link.download = imgUrl.split("/").pop();
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        thumbs[0].classList.add("thumb-active");
+      });
+
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
+  </body>
+</html>

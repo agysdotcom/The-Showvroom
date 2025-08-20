@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Showvroom | Car Parts Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hubot+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Hubot Sans", sans-serif;
+      }
+      .brand-bg {
+        background-color: #093667;
+      }
+      .brand-text {
+        color: #093667;
+      }
+      .cta-btn,
+      .cta-btn-outline {
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 1.125rem;
+        padding: 0.75rem 2.5rem;
+        transition: background 0.3s, color 0.3s, border 0.3s;
+      }
+      .cta-btn {
+        background: #093667;
+        color: #fff;
+      }
+      .cta-btn:hover {
+        background: #002135;
+      }
+      .cta-btn-outline {
+        color: #093667;
+        border: 2px solid #093667;
+        background: #fff;
+      }
+      .cta-btn-outline:hover {
+        background: #f3f4f6;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- HEADER -->
+    <header class="sticky top-0 z-60 bg-white shadow-md">
+      <div
+        class="container mx-auto px-4 md:px-8 py-6 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center">
+            <img
+              src="Logo/The ShowVroom logos TEST-11-LOGO V2.png"
+              alt="The ShowVroom Logo"
+              class="h-14 w-14 rounded-full brand-bg object-contain mr-2"
+            />
+            <span class="brand-text text-xl md:text-2xl font-bold"
+              >The Showvroom</span
+            >
+          </a>
+        </div>
+        <nav class="hidden md:flex space-x-6 items-center">
+          <a
+            href="index.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Home</a
+          >
+          <a
+            href="Buy a car.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Buy a Car</a
+          >
+          <a
+            href="Sell a car.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Sell My Car</a
+          >
+          <a
+            href="Car Part Marketplace.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Car Parts</a
+          >
+          <a
+            href="about us.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >About Us</a
+          >
+          <a
+            href="contact us.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Contact Us</a
+          >
+        </nav>
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white py-2 px-4 shadow-lg"
+      >
+        <a href="index.html" class="block py-2 text-gray-700 hover:brand-text"
+          >Home</a
+        >
+        <a
+          href="Buy a car.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Buy a Car</a
+        >
+        <a
+          href="Sell a car.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Sell My Car</a
+        >
+        <a
+          href="Car Part Marketplace.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Car Parts</a
+        >
+        <a
+          href="about us.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >About Us</a
+        >
+        <a
+          href="Contact us.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Contact Us</a
+        >
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="py-14 bg-white">
+      <div class="container mx-auto px-4 md:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold brand-text mb-4">
+          Car Parts Marketplace
+        </h1>
+        <p class="text-lg text-gray-700 mb-6">
+          Find genuine car parts and accessories or post your own! Trusted
+          sellers and verified listings for the best in the DRC.
+        </p>
+        <a href="Sell a car part.html" class="cta-btn">Sell a Car Part</a>
+      </div>
+    </section>
+
+    <!-- SEARCH BAR / FILTERS (UI only) -->
+    <section class="bg-gray-100 py-6">
+      <div
+        class="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center gap-4"
+      >
+        <input
+          type="text"
+          placeholder="Search for parts (e.g. headlights, tyres)"
+          class="flex-1 border rounded-full py-3 px-6 text-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+        />
+        <select class="border rounded-full py-3 px-6 text-lg bg-white">
+          <option>All Brands</option>
+          <option>Toyota</option>
+          <option>Nissan</option>
+          <option>Mitsubishi</option>
+          <option>BMW</option>
+          <option>Mercedes</option>
+          <!-- Add more brands -->
+        </select>
+        <select class="border rounded-full py-3 px-6 text-lg bg-white">
+          <option>All Categories</option>
+          <option>Engine</option>
+          <option>Brakes</option>
+          <option>Interior</option>
+          <option>Electronics</option>
+          <option>Tyres</option>
+          <!-- Add more categories -->
+        </select>
+        <button class="cta-btn-outline">Search</button>
+      </div>
+    </section>
+
+    <!-- CAR PARTS LISTINGS -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4 md:px-8">
+        <h2 class="text-3xl font-bold mb-8 brand-text text-center">
+          Available Car Parts
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
+          <!-- Part Card 1 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md transition hover:shadow-lg"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1515929008649-14dbe62c0be0?auto=format&fit=crop&w=400&q=80"
+              alt="Brake Pads"
+              class="w-full h-36 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold mb-2">Brake Pads (Toyota)</h3>
+              <div class="brand-text font-semibold mb-2">From $40</div>
+              <div class="text-gray-600 text-sm mb-3">
+                Genuine OEM | New & Used
+              </div>
+              <a
+                href="Brake Pads (Toyota).html"
+                class="block text-center cta-btn-outline"
+                >View Details</a
+              >
+            </div>
+          </div>
+          <!-- Part Card 2 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md transition hover:shadow-lg"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80"
+              alt="Car Battery"
+              class="w-full h-36 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold mb-2">Car Battery (Nissan)</h3>
+              <div class="brand-text font-semibold mb-2">From $55</div>
+              <div class="text-gray-600 text-sm mb-3">
+                12V Heavy Duty | Guaranteed
+              </div>
+              <a href="#" class="block text-center cta-btn-outline"
+                >View Details</a
+              >
+            </div>
+          </div>
+          <!-- Part Card 3 -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md transition hover:shadow-lg"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1511715281207-70bdee4c9a91?auto=format&fit=crop&w=400&q=80"
+              alt="Engine Oil"
+              class="w-full h-36 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold mb-2">Engine Oil (Castrol)</h3>
+              <div class="brand-text font-semibold mb-2">From $25</div>
+              <div class="text-gray-600 text-sm mb-3">5W-30 | Synthetic</div>
+              <a href="#" class="block text-center cta-btn-outline"
+                >View Details</a
+              >
+            </div>
+          </div>
+          <!-- Add more part cards as needed -->
+        </div>
+        <div class="flex justify-center">
+          <a href="Sell a car part.html" class="cta-btn">Sell Your Car Part</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6 mt-6">
+      <div class="container mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">The Showvroom</h3>
+            <p class="mb-4">
+              Your trusted car marketplace in the DRC, connecting buyers and
+              sellers nationwide.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="hover:text-blue-300">Home</a></li>
+              <li>
+                <a href="Buy a car.html" class="hover:text-blue-300"
+                  >Buy a Car</a
+                >
+              </li>
+              <li>
+                <a href="Sell a car.html" class="hover:text-blue-300"
+                  >Sell a Car</a
+                >
+              </li>
+              <li>
+                <a href="Car Part Marketplace.html" class="hover:text-blue-300"
+                  >Car Parts</a
+                >
+              </li>
+              <li>
+                <a href="about us.html" class="hover:text-blue-300">About Us</a>
+              </li>
+              <li>
+                <a href="Contact us.html" class="hover:text-blue-300"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Popular Brands</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-blue-300">Toyota</a></li>
+              <li><a href="#" class="hover:text-blue-300">Nissan</a></li>
+              <li><a href="#" class="hover:text-blue-300">Mitsubishi</a></li>
+              <li><a href="#" class="hover:text-blue-300">BMW</a></li>
+              <li><a href="#" class="hover:text-blue-300">Mercedes</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-3"></i>123 Avenue de la
+                Libération, Kinshasa, DRC
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone-alt mr-3"></i>+243 81 234 5678
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3"></i>info@showvroomdrc.com
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-6">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="mb-4 md:mb-0">
+              © 2025 The Showvroom. All rights reserved.
+            </p>
+            <div class="flex space-x-6">
+              <a href="#" class="hover:text-blue-300">Privacy Policy</a>
+              <a href="#" class="hover:text-blue-300">Terms of Service</a>
+              <a href="#" class="hover:text-blue-300">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
+  </body>
+</html>

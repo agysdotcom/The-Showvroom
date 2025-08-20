@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Car News | The Showvroom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hubot+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Hubot Sans", sans-serif;
+        background: #f9fafb;
+        color: #1e293b;
+      }
+      .brand-text {
+        color: #093667;
+      }
+      .news-heading {
+        font-weight: 700;
+        font-size: 2.125rem;
+        color: #093667;
+        margin-bottom: 0.5rem;
+      }
+      .news-summary {
+        color: #46566a;
+        font-size: 1.125rem;
+        margin-bottom: 2.5rem;
+      }
+      .news-card {
+        background: white;
+        border-radius: 1rem;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+        padding: 1.5rem 1.2rem;
+        margin-bottom: 1.5rem;
+        transition: box-shadow 0.16s;
+        cursor: pointer;
+        border-left: 5px solid #093667;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .news-card:hover {
+        box-shadow: 0 6px 24px rgba(9, 54, 103, 0.08);
+        background: #f8fafc;
+        border-left: 5px solid #fb8200;
+      }
+      .news-date {
+        color: #9ca3af;
+        font-size: 0.93rem;
+        font-weight: 500;
+        margin-bottom: 0.8rem;
+      }
+      .news-category {
+        font-size: 0.9rem;
+        color: #fb8200;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.075em;
+        margin-bottom: 0.5rem;
+      }
+      .news-title {
+        font-size: 1.23rem;
+        font-weight: 700;
+        color: #093667;
+        margin-bottom: 0.8rem;
+        flex-grow: 1;
+      }
+      .news-summary-text {
+        font-size: 1rem;
+        color: #233;
+        margin-bottom: 0.7rem;
+        flex-grow: 2;
+      }
+      .pagination {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2.5rem;
+        margin-bottom: 3rem;
+      }
+      .pagination-btn {
+        background: #fff;
+        color: #093667;
+        font-weight: 600;
+        border: 1px solid #e5e7eb;
+        border-radius: 999px;
+        padding: 0.5rem 1.2rem;
+        box-shadow: 0 2px 6px rgba(9, 54, 103, 0.05);
+        transition: background 0.12s;
+      }
+      .pagination-btn:hover {
+        background: #093667;
+        color: #fff;
+        border-color: #093667;
+      }
+      .pagination-current {
+        background: #093667;
+        color: #fff;
+        border: 1px solid #093667;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="sticky top-0 z-60 bg-white shadow-md">
+      <div
+        class="container mx-auto px-8 py-6 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center">
+            <img
+              src="Logo/The ShowVroom logos TEST-11-LOGO V2.png"
+              alt="The ShowVroom Logo"
+              class="h-14 w-14 rounded-full brand-bg object-contain mr-2"
+            />
+            <span class="brand-text text-xl md:text-2xl font-bold"
+              >The Showvroom</span
+            >
+          </a>
+        </div>
+        <nav class="hidden md:flex space-x-6 items-center">
+          <a
+            href="index.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Home</a
+          >
+          <a
+            href="Buy a car.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Buy a Car</a
+          >
+          <a
+            href="Sell a car.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Sell My Car</a
+          >
+          <a
+            href="about us.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >About Us</a
+          >
+          <a
+            href="contact us.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Contact Us</a
+          >
+        </nav>
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white py-2 px-4 shadow-lg"
+      >
+        <a href="index.html" class="block py-2 text-gray-700 hover:brand-text"
+          >Home</a
+        >
+        <a
+          href="Buy a car.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Buy a Car</a
+        >
+        <a
+          href="Sell a car.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Sell My Car</a
+        >
+        <a
+          href="about us.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >About Us</a
+        >
+        <a
+          href="Contact us.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Contact Us</a
+        >
+      </div>
+    </header>
+
+    <main class="container mx-auto max-w-4xl px-4 my-10">
+      <h1 class="news-heading">News</h1>
+      <div class="news-summary">
+        Everything you need to know about cars – and some things you don’t –
+        right now
+      </div>
+
+      <!-- Grid for 2 articles per row -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Sample News Card: Repeat for each news item -->
+        <a href="/article-outback-kia-ev3.html" class="news-card">
+          <div>
+            <div class="news-date">25 Jun 2025</div>
+            <div class="news-category">Big Reads</div>
+            <div class="news-title">
+              Into the red: 1,920 miles across the Australian Outback in the Kia
+              EV3
+            </div>
+            <div class="news-summary-text">
+              A look at one of the toughest electric car journeys through the
+              Outback – what it means for EV reliability and adventure.
+            </div>
+          </div>
+        </a>
+
+        <a href="/article-ranger-hilux-amarok.html" class="news-card">
+          <div>
+            <div class="news-date">25 Jun 2025</div>
+            <div class="news-category">Video</div>
+            <div class="news-title">
+              Ford Ranger vs Toyota Hilux vs Volkswagen Amarok: what's the best
+              truck?
+            </div>
+            <div class="news-summary-text">
+              We put three top trucks head-to-head. Find out which came out on
+              top for power, off-road skills, comfort, and price.
+            </div>
+          </div>
+        </a>
+
+        <a href="/article-bmw-f1-not-planned.html" class="news-card">
+          <div>
+            <div class="news-date">25 Jun 2025</div>
+            <div class="news-category">Motorsport</div>
+            <div class="news-title">
+              BMW M’s motorsport boss admits Formula One isn’t being considered
+            </div>
+            <div class="news-summary-text">
+              BMW’s head of motorsport on F1 rumors, factory team ambitions, and
+              the brand’s future racing plans.
+            </div>
+          </div>
+        </a>
+
+        <a href="/article-fanatec-amazon.html" class="news-card">
+          <div>
+            <div class="news-date">24 Jun 2025</div>
+            <div class="news-category">Gaming</div>
+            <div class="news-title">
+              What a time to be alive: you can now order Fanatec sim racing gear
+              from Amazon
+            </div>
+            <div class="news-summary-text">
+              Top sim racing hardware is more accessible than ever. Here’s how
+              Fanatec changed the game.
+            </div>
+          </div>
+        </a>
+
+        <!-- Add more news cards here -->
+      </div>
+
+      <!-- PAGINATION -->
+      <nav class="pagination" aria-label="News page navigation">
+        <a href="car-news-page2.html" class="pagination-btn">Previous</a>
+        <span class="pagination-btn pagination-current">3</span>
+        <a href="car-news-page4.html" class="pagination-btn">Next</a>
+      </nav>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6 mt-6">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">The Showvroom</h3>
+            <p class="mb-4">
+              Your trusted car marketplace in the DRC, connecting buyers and
+              sellers nationwide.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="hover:text-blue-300">Home</a></li>
+              <li>
+                <a href="Buy a car.html" class="hover:text-blue-300"
+                  >Buy a Car</a
+                >
+              </li>
+              <li>
+                <a href="Sell a car.html" class="hover:text-blue-300"
+                  >Sell a Car</a
+                >
+              </li>
+              <li>
+                <a href="about us.html" class="hover:text-blue-300">About Us</a>
+              </li>
+              <li>
+                <a href="Contact us.html" class="hover:text-blue-300"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Popular Brands</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-blue-300">Toyota</a></li>
+              <li><a href="#" class="hover:text-blue-300">Nissan</a></li>
+              <li><a href="#" class="hover:text-blue-300">Mitsubishi</a></li>
+              <li><a href="#" class="hover:text-blue-300">BMW</a></li>
+              <li><a href="#" class="hover:text-blue-300">Mercedes</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-3"></i>123 Avenue de la
+                Libération, Kinshasa, DRC
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone-alt mr-3"></i>+243 81 234 5678
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3"></i>info@showvroomdrc.com
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-6">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="mb-4 md:mb-0">
+              © 2025 The Showvroom. All rights reserved.
+            </p>
+            <div class="flex space-x-6">
+              <a href="#" class="hover:text-blue-300">Privacy Policy</a>
+              <a href="#" class="hover:text-blue-300">Terms of Service</a>
+              <a href="#" class="hover:text-blue-300">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Mobile menu toggle
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
+  </body>
+</html>

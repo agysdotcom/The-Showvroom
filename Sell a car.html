@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sell Your Car | The Showvroom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hubot+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Hubot Sans", sans-serif;
+      }
+      .brand-bg {
+        background-color: #093667;
+      }
+      .brand-text {
+        color: #093667;
+      }
+      .cta-btn,
+      .cta-btn-outline {
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 1.125rem;
+        padding: 0.75rem 2.5rem;
+        transition: background 0.3s, color 0.3s, border 0.3s;
+      }
+      .cta-btn {
+        background: #093667;
+        color: #fff;
+      }
+      .cta-btn:hover {
+        background: #002135;
+      }
+      .cta-btn-outline {
+        color: #093667;
+        border: 2px solid #093667;
+        background: #fff;
+      }
+      .cta-btn-outline:hover {
+        background: #f3f4f6;
+      }
+      .section-card {
+        background: white;
+        border-radius: 1rem;
+        box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+      .vehicle-type-label {
+        cursor: pointer;
+        border: 2px solid transparent;
+        border-radius: 1rem;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        transition: border-color 0.3s;
+        user-select: none;
+      }
+      .vehicle-type-label:hover {
+        border-color: #06294d;
+      }
+      input[type="radio"]:checked + .vehicle-type-label {
+        border-color: #06294d;
+        background-color: #73adec;
+        color: #06294d;
+      }
+      input[type="radio"] {
+        display: none;
+      }
+      .error {
+        border-color: #e3342f !important;
+      }
+      .progress-bar {
+        height: 6px;
+        background: #d1d5db;
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+      }
+      .progress-bar-inner {
+        height: 6px;
+        background: #093667;
+        width: 0%;
+        transition: width 0.3s;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- HEADER -->
+    <header class="sticky top-0 z-60 bg-white shadow-md">
+      <div
+        class="container mx-auto px-8 py-6 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center">
+            <img
+              src="Logo/The ShowVroom logos TEST-11-LOGO V2.png"
+              alt="The ShowVroom Logo"
+              class="h-14 w-14 rounded-full brand-bg object-contain mr-2"
+            />
+            <span class="brand-text text-xl md:text-2xl font-bold"
+              >The Showvroom</span
+            >
+          </a>
+        </div>
+        <nav class="hidden md:flex space-x-6 items-center">
+          <a
+            href="index.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Home</a
+          >
+          <a
+            href="Buy a car.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Buy a Car</a
+          >
+          <a
+            href="Sell a car.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Sell My Car</a
+          >
+          <a
+            href="about us.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >About Us</a
+          >
+          <a
+            href="contact us.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Contact Us</a
+          >
+        </nav>
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white py-2 px-4 shadow-lg"
+      >
+        <a href="index.html" class="block py-2 text-gray-700 hover:brand-text"
+          >Home</a
+        >
+        <a
+          href="Buy a car.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Buy a Car</a
+        >
+        <a
+          href="Sell a car.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Sell My Car</a
+        >
+        <a
+          href="about us.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >About Us</a
+        >
+        <a
+          href="Contact us.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Contact Us</a
+        >
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 max-w-3xl py-10">
+      <h1 class="text-3xl font-bold brand-text mb-6 text-center">
+        Sell Your Car
+      </h1>
+
+      <div class="progress-bar">
+        <div class="progress-bar-inner" id="progress"></div>
+      </div>
+
+      <form
+        id="sell-vehicle-form"
+        action="send_mail.php"
+        method="POST"
+        enctype="multipart/form-data"
+        class="space-y-10"
+      >
+        <!-- Step 1: Seller Info -->
+        <section class="section-card" id="step-1">
+          <h2 class="text-2xl font-bold brand-text mb-4">
+            Step 1: Your Details
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <input
+              type="text"
+              name="seller_name"
+              placeholder="Full Name *"
+              required
+              class="border rounded-lg p-3"
+            />
+            <input
+              type="email"
+              name="seller_email"
+              placeholder="Email *"
+              required
+              class="border rounded-lg p-3"
+            />
+            <input
+              type="tel"
+              name="seller_phone"
+              placeholder="Phone Number *"
+              required
+              class="border rounded-lg p-3"
+            />
+            <input
+              type="text"
+              name="seller_city"
+              placeholder="City *"
+              required
+              class="border rounded-lg p-3"
+            />
+          </div>
+          <div class="mt-6 flex justify-end">
+            <button type="button" id="to-step-2" class="cta-btn">Next</button>
+          </div>
+        </section>
+
+        <!-- Step 2: Vehicle Info -->
+        <section class="section-card hidden" id="step-2">
+          <h2 class="text-2xl font-bold brand-text mb-4">
+            Step 2: Vehicle Details
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <input
+              type="text"
+              name="make"
+              placeholder="Make *"
+              required
+              class="border rounded-lg p-3"
+            />
+            <input
+              type="text"
+              name="model"
+              placeholder="Model *"
+              required
+              class="border rounded-lg p-3"
+            />
+            <input
+              type="number"
+              name="year"
+              placeholder="Year *"
+              required
+              class="border rounded-lg p-3"
+            />
+            <input
+              type="number"
+              name="mileage"
+              placeholder="Mileage (km)"
+              class="border rounded-lg p-3"
+            />
+            <input
+              type="number"
+              name="price"
+              placeholder="Asking Price *"
+              required
+              class="border rounded-lg p-3"
+            />
+            <select name="transmission" required class="border rounded-lg p-3">
+              <option value="">Transmission *</option>
+              <option value="Automatic">Automatic</option>
+              <option value="Manual">Manual</option>
+            </select>
+            <select name="fuel_type" required class="border rounded-lg p-3">
+              <option value="">Fuel Type *</option>
+              <option value="Petrol">Petrol</option>
+              <option value="Diesel">Diesel</option>
+              <option value="Hybrid">Hybrid</option>
+              <option value="Electric">Electric</option>
+            </select>
+            <select name="condition" required class="border rounded-lg p-3">
+              <option value="">Condition *</option>
+              <option value="Used">Used</option>
+              <option value="New">New</option>
+            </select>
+
+            <!-- Added Fields -->
+            <input
+              type="number"
+              name="number_of_seats"
+              placeholder="Number of Seats *"
+              min="1"
+              max="12"
+              required
+              class="border rounded-lg p-3"
+            />
+            <input
+              type="text"
+              name="vin_number"
+              placeholder="VIN (Vehicle Identification Number) *"
+              maxlength="17"
+              required
+              class="border rounded-lg p-3"
+            />
+            <textarea
+              name="vehicle_features"
+              placeholder="Vehicle Features (e.g. Air Conditioning, Leather Seats, Sunroof)"
+              rows="3"
+              class="border rounded-lg p-3 col-span-2"
+            ></textarea>
+          </div>
+          <div class="mt-6 flex justify-between">
+            <button type="button" id="back-step-2" class="cta-btn-outline">
+              Back
+            </button>
+            <button type="button" id="to-step-3" class="cta-btn">Next</button>
+          </div>
+        </section>
+
+        <!-- Step 3: Upload Images -->
+        <section class="section-card hidden" id="step-3">
+          <h2 class="text-2xl font-bold brand-text mb-4">
+            Step 3: Upload Photos
+          </h2>
+          <p class="text-gray-600 mb-4">
+            Upload at least 8 photos of your vehicle.
+          </p>
+          <input
+            type="file"
+            name="images[]"
+            accept="image/*"
+            multiple
+            required
+            class="border p-2 rounded-lg w-full"
+          />
+          <div class="mt-6 flex justify-between">
+            <button type="button" id="back-step-3" class="cta-btn-outline">
+              Back
+            </button>
+            <button type="submit" class="cta-btn">Submit</button>
+          </div>
+        </section>
+      </form>
+    </main>
+    <!-- ADVERTISEMENT BANNER -->
+    <section
+      class="flex justify-center my-10"
+      style="margin-left: 100px; margin-right: 100px"
+    >
+      <img
+        src="Advertisement/contact-us-ad-600x160.png"
+        alt="Ad Banner"
+        class="rounded-xl shadow-lg w-[600px] h-[160px] object-cover"
+        style="max-width: 100%; height: 160px"
+      />
+    </section>
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6 mt-6">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">The Showvroom</h3>
+            <p class="mb-4">
+              Your trusted car marketplace in the DRC, connecting buyers and
+              sellers nationwide.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="hover:text-blue-300">Home</a></li>
+              <li>
+                <a href="Buy a car.html" class="hover:text-blue-300"
+                  >Buy a Car</a
+                >
+              </li>
+              <li>
+                <a href="Sell a car.html" class="hover:text-blue-300"
+                  >Sell a Car</a
+                >
+              </li>
+              <li>
+                <a href="about us.html" class="hover:text-blue-300">About Us</a>
+              </li>
+              <li>
+                <a href="Contact us.html" class="hover:text-blue-300"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Popular Brands</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-blue-300">Toyota</a></li>
+              <li><a href="#" class="hover:text-blue-300">Nissan</a></li>
+              <li><a href="#" class="hover:text-blue-300">Mitsubishi</a></li>
+              <li><a href="#" class="hover:text-blue-300">BMW</a></li>
+              <li><a href="#" class="hover:text-blue-300">Mercedes</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-3"></i>123 Avenue de la
+                Libération, Kinshasa, DRC
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone-alt mr-3"></i>+243 81 234 5678
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3"></i>info@showvroomdrc.com
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-6">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="mb-4 md:mb-0">
+              © 2025 The Showvroom. All rights reserved.
+            </p>
+            <div class="flex space-x-6">
+              <a href="#" class="hover:text-blue-300">Privacy Policy</a>
+              <a href="#" class="hover:text-blue-300">Terms of Service</a>
+              <a href="#" class="hover:text-blue-300">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
+    <script>
+      const progress = document.getElementById("progress");
+      const step1 = document.getElementById("step-1");
+      const step2 = document.getElementById("step-2");
+      const step3 = document.getElementById("step-3");
+
+      document.getElementById("to-step-2").onclick = () => {
+        // Validate step 1 required fields
+        let valid = true;
+        step1.querySelectorAll("input").forEach((f) => {
+          if (f.hasAttribute("required") && !f.value.trim()) {
+            f.classList.add("error");
+            valid = false;
+          } else {
+            f.classList.remove("error");
+          }
+        });
+        if (!valid) {
+          alert("Please fill in all required personal details.");
+          return;
+        }
+        step1.classList.add("hidden");
+        step2.classList.remove("hidden");
+        progress.style.width = "50%";
+      };
+
+      document.getElementById("back-step-2").onclick = () => {
+        step2.classList.add("hidden");
+        step1.classList.remove("hidden");
+        progress.style.width = "0%";
+      };
+
+      document.getElementById("to-step-3").onclick = () => {
+        // Validate vehicle info fields
+        let valid = true;
+        step2.querySelectorAll("input, select").forEach((f) => {
+          if (f.hasAttribute("required") && !f.value.trim()) {
+            f.classList.add("error");
+            valid = false;
+          } else {
+            f.classList.remove("error");
+          }
+        });
+        if (!valid) {
+          alert("Please fill in all required vehicle fields.");
+          return;
+        }
+        step2.classList.add("hidden");
+        step3.classList.remove("hidden");
+        progress.style.width = "100%";
+      };
+
+      document.getElementById("back-step-3").onclick = () => {
+        step3.classList.add("hidden");
+        step2.classList.remove("hidden");
+        progress.style.width = "50%";
+      };
+    </script>
+  </body>
+</html>

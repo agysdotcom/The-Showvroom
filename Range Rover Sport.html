@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Showvroom | Buy & Sell Cars in DRC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hubot+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <style>
+      body {
+        font-family: "Hubot Sans", sans-serif;
+      }
+      .brand-bg {
+        background-color: #093667;
+      }
+      .brand-text {
+        color: #093667;
+      }
+      .cta-btn,
+      .cta-btn-outline {
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 1.125rem;
+        padding: 0.75rem 2.5rem;
+        transition: background 0.3s, color 0.3s, border 0.3s;
+      }
+      .cta-btn {
+        background: #093667;
+        color: #fff;
+      }
+      .cta-btn:hover {
+        background: #002135;
+      }
+      .cta-btn-outline {
+        color: #093667;
+        border: 2px solid #093667;
+        background: #fff;
+      }
+      .cta-btn-outline:hover {
+        background: #f3f4f6;
+      }
+      .car-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+      .article-card:hover {
+        background-color: #f7fafe;
+      }
+      .bubble {
+        border-radius: 2rem;
+      }
+      .section-card {
+        background: white;
+        border-radius: 1rem;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+        padding: 2rem;
+        margin-bottom: 2.5rem;
+      }
+      .meta-info {
+        color: #888;
+        font-size: 1rem;
+        margin-bottom: 1.25rem;
+      }
+      .highlight {
+        color: #fb8200;
+        font-weight: bold;
+      }
+      .article-title {
+        color: #093667;
+        font-weight: 700;
+        letter-spacing: -1px;
+      }
+      .article-img {
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.09);
+        width: 100%;
+        height: 350px;
+      }
+      .swiper-slide img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 1rem;
+      }
+      .subsection {
+        font-size: 1.13rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.7rem;
+        font-weight: 600;
+        color: #093667;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- HEADER -->
+    <header class="sticky top-0 z-60 bg-white shadow-md">
+      <div
+        class="container mx-auto px-8 py-6 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center">
+            <img
+              src="Logo/The ShowVroom logos TEST-11-LOGO V2.png"
+              alt="The ShowVroom Logo"
+              class="h-14 w-14 rounded-full brand-bg object-contain mr-2"
+            />
+            <span class="brand-text text-xl md:text-2xl font-bold"
+              >The Showvroom</span
+            >
+          </a>
+        </div>
+        <nav class="hidden md:flex space-x-6 items-center">
+          <a
+            href="index.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Home</a
+          >
+          <a
+            href="Buy a car.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Buy a Car</a
+          >
+          <a
+            href="Sell a car.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Sell My Car</a
+          >
+          <a
+            href="about us.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >About Us</a
+          >
+          <a
+            href="contact us.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Contact Us</a
+          >
+        </nav>
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white py-2 px-4 shadow-lg"
+      >
+        <a href="index.html" class="block py-2 text-gray-700 hover:brand-text"
+          >Home</a
+        >
+        <a
+          href="Buy a car.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Buy a Car</a
+        >
+        <a
+          href="Sell a car.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Sell My Car</a
+        >
+        <a
+          href="about us.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >About Us</a
+        >
+        <a
+          href="Contact us.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Contact Us</a
+        >
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="container mx-auto max-w-3xl mt-8 px-4">
+      <article class="section-card">
+        <div class="meta-info mb-5">
+          <span>First Look - Aug 5, 2025</span> &bull;
+          <span>By <span class="highlight">Vijay Pattni</span></span>
+        </div>
+        <h1 class="text-3xl md:text-4xl article-title mb-5">
+          The Range Rover Sport SV Carbon: Today’s Special Edition Range Rover
+          Sport
+        </h1>
+
+        <!-- Swiper -->
+        <div class="swiper mySwiper article-img">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img
+                src="Logo/Pictures/RRS_SV_Carbon_Side_On_16x9_8K_SH004_PR.webp"
+                alt="Range Rover Sport SV Carbon"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="Logo/Pictures/RRS_SV_Carbon_Carbon_wheel_and_caliper_16x9_8K_SH012_PR.webp"
+                alt="Range Rover Sport SV Carbon Rear"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="Logo/Pictures/RRS_SV_Carbon_Dash_and_pivi_16x9_8K_SH028_PR.webp"
+                alt="Range Rover Sport SV Carbon Interior"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="Logo/Pictures/RRS_SV_Carbon_Exhaust_16x9_8K_SH003_PR.webp"
+                alt="Range Rover Sport SV Carbon Interior"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="Logo/Pictures/RRS_SV_Carbon_F34_Lifestyle_16x9_8K_v5_PR.webp"
+                alt="Range Rover Sport SV Carbon Interior"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="Logo/Pictures/RRS_SV_Carbon_Shifter_16x9_8K_SH015_PR.webp"
+                alt="Range Rover Sport SV Carbon Interior"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="Logo/Pictures/RRS_SV_Carbon_R34_Lifestyle_16x9_8K_v3_PR.webp"
+                alt="Range Rover Sport SV Carbon Interior"
+              />
+            </div>
+
+            <!-- Add more images slides as needed -->
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+
+        <p class="text-lg mb-6">
+          <span class="highlight"
+            >RR rolls out latest in a long line of big fat specials.</span
+          >
+          The latest special edition Range Rover Sport follows a tradition of
+          exclusive models, and this time, it's the bronzed, sporty and
+          lightweight Range Rover Sport SV Carbon.
+        </p>
+        <h2 class="subsection">Forged Carbon: Exterior and Options</h2>
+        <p class="mb-5">
+          It’s not a surprise: as its name hints, the SV Carbon is packed with
+          carbon fiber, specifically through a standard
+          <span class="highlight">forged carbon exterior pack.</span> Expect
+          carbon details on the bonnet, exhaust surrounds, and more. Customers
+          can select from four paint colors or dive into curated hues from the
+          SV premium palette.
+        </p>
+        <p class="mb-5">
+          Interestingly, despite the model’s name, the signature
+          <span class="highlight">23in carbon wheels</span> are optional.
+          Standard fitment is a set of forged alloy wheels with black anodized
+          calipers, with carbon ceramic brakes also available as upgrades.
+        </p>
+        <h2 class="subsection">Interior Luxury & Options</h2>
+        <p class="mb-5">
+          The theme continues inside: you’ll find carbon detailing on seatbacks
+          and dash, plus a range of color and upholstery choices. Prefer a vegan
+          cabin? The SV Carbon offers Ultrafabrics—a premium, leather-free
+          finish.
+        </p>
+        <h2 class="subsection">Power and Performance</h2>
+        <p class="mb-5">
+          Every SV Carbon packs a thundering 4.4-litre V8 hybrid, delivering
+          626bhp and 590lb ft of torque. It’s good for
+          <span class="highlight">180mph</span> where allowed, and sheds 76kg
+          compared to the standard SV, thanks to its lightweight componentry and
+          those optional carbon wheels.
+        </p>
+        <h2 class="subsection">Pricing</h2>
+        <p class="mb-5">
+          The SV range starts at <span class="highlight">£139,995</span>, with
+          the SV Black at <span class="highlight">£154,975</span>, and this
+          ultimate Carbon edition at
+          <span class="highlight">£165,045</span> (excluding further bespoke
+          upgrades).
+        </p>
+
+        <!-- Related Reads -->
+        <section class="bg-gray-100 rounded-xl px-5 py-6 mb-2">
+          <h3 class="brand-text font-semibold mb-4">You might like</h3>
+          <ul>
+            <li class="mb-2">
+              <a href="A new haevy weight.html"
+                >A new haevy weight on the block</a
+              >
+            </li>
+            <li class="mb-2">
+              <a href="New Supermini.html">New Supermini:Nissan Micra</a>
+            </li>
+            <li class="mb-2">
+              <a href="Electric Sporty.html">Electric Sporty</a>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <aside class="mb-14 text-center">
+        <a href="Blog.html" class="cta-btn bg-white brand-text border px-8 py-3"
+          >Back to articles</a
+        >
+      </aside>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6 mt-6">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">The Showvroom</h3>
+            <p class="mb-4">
+              Your trusted car marketplace in the DRC, connecting buyers and
+              sellers nationwide.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="hover:text-blue-300">Home</a></li>
+              <li>
+                <a href="Buy a car.html" class="hover:text-blue-300"
+                  >Buy a Car</a
+                >
+              </li>
+              <li>
+                <a href="Sell a car.html" class="hover:text-blue-300"
+                  >Sell a Car</a
+                >
+              </li>
+              <li>
+                <a href="about us.html" class="hover:text-blue-300">About Us</a>
+              </li>
+              <li>
+                <a href="Contact us.html" class="hover:text-blue-300"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Popular Brands</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-blue-300">Toyota</a></li>
+              <li><a href="#" class="hover:text-blue-300">Nissan</a></li>
+              <li><a href="#" class="hover:text-blue-300">Mitsubishi</a></li>
+              <li><a href="#" class="hover:text-blue-300">BMW</a></li>
+              <li><a href="#" class="hover:text-blue-300">Mercedes</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-3"></i>123 Avenue de la
+                Libération, Kinshasa, DRC
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone-alt mr-3"></i>+243 81 234 5678
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3"></i>info@showvroomdrc.com
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-6">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="mb-4 md:mb-0">
+              © 2025 The Showvroom. All rights reserved.
+            </p>
+            <div class="flex space-x-6">
+              <a href="#" class="hover:text-blue-300">Privacy Policy</a>
+              <a href="#" class="hover:text-blue-300">Terms of Service</a>
+              <a href="#" class="hover:text-blue-300">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+      // Initialize Swiper
+      const swiper = new Swiper(".mySwiper", {
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      // Mobile menu toggle
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
+  </body>
+</html>

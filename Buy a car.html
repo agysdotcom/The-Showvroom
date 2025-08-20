@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Buy a Car | The Showvroom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hubot+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Swiper.js CDN for carousels -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <style>
+      body {
+        font-family: "Hubot Sans", sans-serif;
+      }
+      .brand-bg {
+        background-color: #093667;
+      }
+      .brand-text {
+        color: #093667;
+      }
+      .car-card {
+        border-radius: 1.2rem;
+        box-shadow: 0 3px 24px 0 rgba(0, 0, 0, 0.07);
+      }
+      .car-card:hover {
+        box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.13);
+        transform: translateY(-2px);
+      }
+      .swiper-pagination-bullet-active {
+        background: #093667 !important;
+      }
+      .pagination {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 10px;
+      }
+      .pagination a,
+      .pagination span {
+        font-weight: 700;
+        font-size: 1.1rem;
+        padding: 10px 25px;
+        border: 2px solid #093667;
+        border-radius: 8px;
+        color: #093667;
+        transition: all 0.3s ease;
+        display: inline-block;
+        margin: 0 5px;
+        background: none;
+      }
+      .pagination a:hover {
+        background-color: #093667;
+        color: #fffde7;
+        text-decoration: none;
+      }
+      .pagination span {
+        cursor: default;
+        background: #eee;
+        opacity: 0.6;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+      <div
+        class="container mx-auto px-4 md:px-8 py-6 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center">
+            <img
+              src="Logo/The ShowVroom logos TEST-11-LOGO V2.png"
+              alt="The ShowVroom Logo"
+              class="h-14 w-14 rounded-full brand-bg object-contain mr-2"
+            />
+            <span class="brand-text text-xl md:text-2xl font-bold"
+              >The Showvroom</span
+            >
+          </a>
+        </div>
+        <nav class="hidden md:flex space-x-6 items-center">
+          <a
+            href="index.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Home</a
+          >
+          <a
+            href="Buy a car.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Buy a Car</a
+          >
+          <a
+            href="Sell a car.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Sell My Car</a
+          >
+          <a
+            href="Car Parts.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Car Parts</a
+          >
+          <a
+            href="about us.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >About Us</a
+          >
+          <a
+            href="contact us.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Contact Us</a
+          >
+        </nav>
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white py-2 px-4 shadow-lg"
+      >
+        <a href="index.html" class="block py-2 text-gray-700 hover:brand-text"
+          >Home</a
+        >
+        <a
+          href="Buy a car.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Buy a Car</a
+        >
+        <a
+          href="Sell a car.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Sell My Car</a
+        >
+        <a
+          href="Car Parts.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Car Parts</a
+        >
+        <a
+          href="about us.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >About Us</a
+        >
+        <a
+          href="Contact us.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Contact Us</a
+        >
+      </div>
+    </header>
+
+    <main class="container mx-auto px-2 md:px-0 pt-10 pb-16">
+      <h1 class="brand-text text-3xl md:text-4xl font-bold mb-8 text-center">
+        Browse Our Listing
+      </h1>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+        <!-- Example: Repeat this block for 12 cars -->
+        <!-- Card 1 -->
+        <a
+          href="Cars/25080001_Chery Tiggo 4 Pro 2025/25080001_Chery Tiggo 4 Pro 2025.html"
+          class="car-card bg-white overflow-hidden hover:no-underline transition duration-200 flex flex-col"
+        >
+          <div class="relative">
+            <!-- Swiper Slider -->
+            <div class="swiper car-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <span
+              class="absolute top-2 right-2 bg-white rounded-lg px-2 py-1 text-xs font-bold brand-text"
+              >2025</span
+            >
+          </div>
+          <div class="p-4 flex-1 flex flex-col">
+            <div class="font-semibold text-lg mb-1">
+              <span class="brand-text">Chery</span> Tiggo 4 PRO Panel Van
+            </div>
+            <div class="flex flex-wrap text-sm text-gray-700 gap-x-3 mb-2">
+              <span><i class="fas fa-tachometer-alt mr-1"></i> 268 km</span>
+              <span><i class="fas fa-map-marker-alt mr-1"></i> Kinshasa</span>
+            </div>
+            <div class="font-bold text-2xl mb-2 brand-text">USD 18,000</div>
+            <div
+              class="flex items-center text-xs text-gray-600 gap-x-3 mt-auto"
+            >
+              <span class="flex items-center"
+                ><i class="fas fa-certificate text-yellow-400 mr-1"></i
+                >Certified</span
+              >
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a
+          href="/car/2"
+          class="car-card bg-white overflow-hidden hover:no-underline transition duration-200 flex flex-col"
+        >
+          <div class="relative">
+            <div class="swiper car-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1618843479313-40f4afd4e7cb?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <span
+              class="absolute top-2 right-2 bg-white rounded-lg px-2 py-1 text-xs font-bold brand-text"
+              >2022</span
+            >
+          </div>
+          <div class="p-4 flex-1 flex flex-col">
+            <div class="font-semibold text-lg mb-1">
+              <span class="brand-text">Suzuki</span> S-Presso 1.0 GL AMT
+            </div>
+            <div class="flex flex-wrap text-sm text-gray-700 gap-x-3 mb-2">
+              <span><i class="fas fa-tachometer-alt mr-1"></i> 5,546 km</span>
+              <span><i class="fas fa-map-marker-alt mr-1"></i> Lubumbashi</span>
+            </div>
+            <div class="font-bold text-2xl mb-2 brand-text">USD 12,700</div>
+            <div
+              class="flex items-center text-xs text-gray-600 gap-x-3 mt-auto"
+            >
+              <span class="flex items-center"
+                ><i class="fas fa-check-circle text-blue-400 mr-1"></i
+                >Ready</span
+              >
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a
+          href="/car/3"
+          class="car-card bg-white overflow-hidden hover:no-underline transition duration-200 flex flex-col"
+        >
+          <div class="relative">
+            <div class="swiper car-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1616788494707-ec28f08fd05e?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <span
+              class="absolute top-2 right-2 bg-white rounded-lg px-2 py-1 text-xs font-bold brand-text"
+              >2012</span
+            >
+          </div>
+          <div class="p-4 flex-1 flex flex-col">
+            <div class="font-semibold text-lg mb-1">
+              <span class="brand-text">Chevrolet</span> Sonic 1.4 LS
+            </div>
+            <div class="flex flex-wrap text-sm text-gray-700 gap-x-3 mb-2">
+              <span><i class="fas fa-tachometer-alt mr-1"></i> 58,689 km</span>
+              <span><i class="fas fa-map-marker-alt mr-1"></i> Goma</span>
+            </div>
+            <div class="font-bold text-2xl mb-2 brand-text">USD 7,200</div>
+            <div
+              class="flex items-center text-xs text-gray-600 gap-x-3 mt-auto"
+            >
+              <span class="flex items-center"
+                ><i class="fas fa-certificate text-yellow-400 mr-1"></i
+                >Certified</span
+              >
+            </div>
+          </div>
+        </a>
+        <!-- Card 4 -->
+        <a
+          href="/car/1"
+          class="car-card bg-white overflow-hidden hover:no-underline transition duration-200 flex flex-col"
+        >
+          <div class="relative">
+            <!-- Swiper Slider -->
+            <div class="swiper car-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <span
+              class="absolute top-2 right-2 bg-white rounded-lg px-2 py-1 text-xs font-bold brand-text"
+              >2025</span
+            >
+          </div>
+          <div class="p-4 flex-1 flex flex-col">
+            <div class="font-semibold text-lg mb-1">
+              <span class="brand-text">Chery</span> Tiggo 4 PRO Panel Van
+            </div>
+            <div class="flex flex-wrap text-sm text-gray-700 gap-x-3 mb-2">
+              <span><i class="fas fa-tachometer-alt mr-1"></i> 268 km</span>
+              <span><i class="fas fa-map-marker-alt mr-1"></i> Kinshasa</span>
+            </div>
+            <div class="font-bold text-2xl mb-2 brand-text">USD 18,000</div>
+            <div
+              class="flex items-center text-xs text-gray-600 gap-x-3 mt-auto"
+            >
+              <span class="flex items-center"
+                ><i class="fas fa-certificate text-yellow-400 mr-1"></i
+                >Certified</span
+              >
+            </div>
+          </div>
+        </a>
+        <!-- Card 5 -->
+        <a
+          href="/car/1"
+          class="car-card bg-white overflow-hidden hover:no-underline transition duration-200 flex flex-col"
+        >
+          <div class="relative">
+            <!-- Swiper Slider -->
+            <div class="swiper car-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <span
+              class="absolute top-2 right-2 bg-white rounded-lg px-2 py-1 text-xs font-bold brand-text"
+              >2025</span
+            >
+          </div>
+          <div class="p-4 flex-1 flex flex-col">
+            <div class="font-semibold text-lg mb-1">
+              <span class="brand-text">Chery</span> Tiggo 4 PRO Panel Van
+            </div>
+            <div class="flex flex-wrap text-sm text-gray-700 gap-x-3 mb-2">
+              <span><i class="fas fa-tachometer-alt mr-1"></i> 268 km</span>
+              <span><i class="fas fa-map-marker-alt mr-1"></i> Kinshasa</span>
+            </div>
+            <div class="font-bold text-2xl mb-2 brand-text">USD 18,000</div>
+            <div
+              class="flex items-center text-xs text-gray-600 gap-x-3 mt-auto"
+            >
+              <span class="flex items-center"
+                ><i class="fas fa-certificate text-yellow-400 mr-1"></i
+                >Certified</span
+              >
+            </div>
+          </div>
+        </a>
+        <!-- Card 6 -->
+        <a
+          href="/car/1"
+          class="car-card bg-white overflow-hidden hover:no-underline transition duration-200 flex flex-col"
+        >
+          <div class="relative">
+            <!-- Swiper Slider -->
+            <div class="swiper car-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <span
+              class="absolute top-2 right-2 bg-white rounded-lg px-2 py-1 text-xs font-bold brand-text"
+              >2025</span
+            >
+          </div>
+          <div class="p-4 flex-1 flex flex-col">
+            <div class="font-semibold text-lg mb-1">
+              <span class="brand-text">Chery</span> Tiggo 4 PRO Panel Van
+            </div>
+            <div class="flex flex-wrap text-sm text-gray-700 gap-x-3 mb-2">
+              <span><i class="fas fa-tachometer-alt mr-1"></i> 268 km</span>
+              <span><i class="fas fa-map-marker-alt mr-1"></i> Kinshasa</span>
+            </div>
+            <div class="font-bold text-2xl mb-2 brand-text">USD 18,000</div>
+            <div
+              class="flex items-center text-xs text-gray-600 gap-x-3 mt-auto"
+            >
+              <span class="flex items-center"
+                ><i class="fas fa-certificate text-yellow-400 mr-1"></i
+                >Certified</span
+              >
+            </div>
+          </div>
+        </a>
+        <!-- Card 7 -->
+        <a
+          href="/car/1"
+          class="car-card bg-white overflow-hidden hover:no-underline transition duration-200 flex flex-col"
+        >
+          <div class="relative">
+            <!-- Swiper Slider -->
+            <div class="swiper car-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <span
+              class="absolute top-2 right-2 bg-white rounded-lg px-2 py-1 text-xs font-bold brand-text"
+              >2025</span
+            >
+          </div>
+          <div class="p-4 flex-1 flex flex-col">
+            <div class="font-semibold text-lg mb-1">
+              <span class="brand-text">Chery</span> Tiggo 4 PRO Panel Van
+            </div>
+            <div class="flex flex-wrap text-sm text-gray-700 gap-x-3 mb-2">
+              <span><i class="fas fa-tachometer-alt mr-1"></i> 268 km</span>
+              <span><i class="fas fa-map-marker-alt mr-1"></i> Kinshasa</span>
+            </div>
+            <div class="font-bold text-2xl mb-2 brand-text">USD 18,000</div>
+            <div
+              class="flex items-center text-xs text-gray-600 gap-x-3 mt-auto"
+            >
+              <span class="flex items-center"
+                ><i class="fas fa-certificate text-yellow-400 mr-1"></i
+                >Certified</span
+              >
+            </div>
+          </div>
+        </a>
+        <!-- Card 8 -->
+        <a
+          href="/car/1"
+          class="car-card bg-white overflow-hidden hover:no-underline transition duration-200 flex flex-col"
+        >
+          <div class="relative">
+            <!-- Swiper Slider -->
+            <div class="swiper car-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <span
+              class="absolute top-2 right-2 bg-white rounded-lg px-2 py-1 text-xs font-bold brand-text"
+              >2025</span
+            >
+          </div>
+          <div class="p-4 flex-1 flex flex-col">
+            <div class="font-semibold text-lg mb-1">
+              <span class="brand-text">Chery</span> Tiggo 4 PRO Panel Van
+            </div>
+            <div class="flex flex-wrap text-sm text-gray-700 gap-x-3 mb-2">
+              <span><i class="fas fa-tachometer-alt mr-1"></i> 268 km</span>
+              <span><i class="fas fa-map-marker-alt mr-1"></i> Kinshasa</span>
+            </div>
+            <div class="font-bold text-2xl mb-2 brand-text">USD 18,000</div>
+            <div
+              class="flex items-center text-xs text-gray-600 gap-x-3 mt-auto"
+            >
+              <span class="flex items-center"
+                ><i class="fas fa-certificate text-yellow-400 mr-1"></i
+                >Certified</span
+              >
+            </div>
+          </div>
+        </a>
+        <!-- Card 9 -->
+        <a
+          href="/car/1"
+          class="car-card bg-white overflow-hidden hover:no-underline transition duration-200 flex flex-col"
+        >
+          <div class="relative">
+            <!-- Swiper Slider -->
+            <div class="swiper car-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <span
+              class="absolute top-2 right-2 bg-white rounded-lg px-2 py-1 text-xs font-bold brand-text"
+              >2025</span
+            >
+          </div>
+          <div class="p-4 flex-1 flex flex-col">
+            <div class="font-semibold text-lg mb-1">
+              <span class="brand-text">Chery</span> Tiggo 4 PRO Panel Van
+            </div>
+            <div class="flex flex-wrap text-sm text-gray-700 gap-x-3 mb-2">
+              <span><i class="fas fa-tachometer-alt mr-1"></i> 268 km</span>
+              <span><i class="fas fa-map-marker-alt mr-1"></i> Kinshasa</span>
+            </div>
+            <div class="font-bold text-2xl mb-2 brand-text">USD 18,000</div>
+            <div
+              class="flex items-center text-xs text-gray-600 gap-x-3 mt-auto"
+            >
+              <span class="flex items-center"
+                ><i class="fas fa-certificate text-yellow-400 mr-1"></i
+                >Certified</span
+              >
+            </div>
+          </div>
+        </a>
+        <!-- Card 10 -->
+        <a
+          href="/car/1"
+          class="car-card bg-white overflow-hidden hover:no-underline transition duration-200 flex flex-col"
+        >
+          <div class="relative">
+            <!-- Swiper Slider -->
+            <div class="swiper car-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <span
+              class="absolute top-2 right-2 bg-white rounded-lg px-2 py-1 text-xs font-bold brand-text"
+              >2025</span
+            >
+          </div>
+          <div class="p-4 flex-1 flex flex-col">
+            <div class="font-semibold text-lg mb-1">
+              <span class="brand-text">Chery</span> Tiggo 4 PRO Panel Van
+            </div>
+            <div class="flex flex-wrap text-sm text-gray-700 gap-x-3 mb-2">
+              <span><i class="fas fa-tachometer-alt mr-1"></i> 268 km</span>
+              <span><i class="fas fa-map-marker-alt mr-1"></i> Kinshasa</span>
+            </div>
+            <div class="font-bold text-2xl mb-2 brand-text">USD 18,000</div>
+            <div
+              class="flex items-center text-xs text-gray-600 gap-x-3 mt-auto"
+            >
+              <span class="flex items-center"
+                ><i class="fas fa-certificate text-yellow-400 mr-1"></i
+                >Certified</span
+              >
+            </div>
+          </div>
+        </a>
+        <!-- Card 11 -->
+        <a
+          href="/car/1"
+          class="car-card bg-white overflow-hidden hover:no-underline transition duration-200 flex flex-col"
+        >
+          <div class="relative">
+            <!-- Swiper Slider -->
+            <div class="swiper car-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <span
+              class="absolute top-2 right-2 bg-white rounded-lg px-2 py-1 text-xs font-bold brand-text"
+              >2025</span
+            >
+          </div>
+          <div class="p-4 flex-1 flex flex-col">
+            <div class="font-semibold text-lg mb-1">
+              <span class="brand-text">Chery</span> Tiggo 4 PRO Panel Van
+            </div>
+            <div class="flex flex-wrap text-sm text-gray-700 gap-x-3 mb-2">
+              <span><i class="fas fa-tachometer-alt mr-1"></i> 268 km</span>
+              <span><i class="fas fa-map-marker-alt mr-1"></i> Kinshasa</span>
+            </div>
+            <div class="font-bold text-2xl mb-2 brand-text">USD 18,000</div>
+            <div
+              class="flex items-center text-xs text-gray-600 gap-x-3 mt-auto"
+            >
+              <span class="flex items-center"
+                ><i class="fas fa-certificate text-yellow-400 mr-1"></i
+                >Certified</span
+              >
+            </div>
+          </div>
+        </a>
+        <!-- Card 12 -->
+        <a
+          href="/car/1"
+          class="car-card bg-white overflow-hidden hover:no-underline transition duration-200 flex flex-col"
+        >
+          <div class="relative">
+            <!-- Swiper Slider -->
+            <div class="swiper car-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=500&q=80"
+                    class="w-full h-48 object-cover"
+                  />
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <span
+              class="absolute top-2 right-2 bg-white rounded-lg px-2 py-1 text-xs font-bold brand-text"
+              >2025</span
+            >
+          </div>
+          <div class="p-4 flex-1 flex flex-col">
+            <div class="font-semibold text-lg mb-1">
+              <span class="brand-text">Chery</span> Tiggo 4 PRO Panel Van
+            </div>
+            <div class="flex flex-wrap text-sm text-gray-700 gap-x-3 mb-2">
+              <span><i class="fas fa-tachometer-alt mr-1"></i> 268 km</span>
+              <span><i class="fas fa-map-marker-alt mr-1"></i> Kinshasa</span>
+            </div>
+            <div class="font-bold text-2xl mb-2 brand-text">USD 18,000</div>
+            <div
+              class="flex items-center text-xs text-gray-600 gap-x-3 mt-auto"
+            >
+              <span class="flex items-center"
+                ><i class="fas fa-certificate text-yellow-400 mr-1"></i
+                >Certified</span
+              >
+            </div>
+          </div>
+        </a>
+        <!-- Repeat 9 more card blocks for 12 in total. Use varied images, years, and info for realism -->
+        <!-- ... -->
+      </div>
+      <div class="pagination">
+        <span>&laquo; Previous</span>
+        <a href="news-page2.html" aria-label="Next page">Next &raquo;</a>
+      </div>
+    </main>
+    <!-- ADVERTISEMENT BANNER -->
+    <section
+      class="flex justify-center my-10"
+      style="margin-left: 100px; margin-right: 100px"
+    >
+      <img
+        src="Advertisement/contact-us-ad-600x160.png"
+        alt="Ad Banner"
+        class="rounded-xl shadow-lg w-[600px] h-[160px] object-cover"
+        style="max-width: 100%; height: 160px"
+      />
+    </section>
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6 mt-6">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">The Showvroom</h3>
+            <p class="mb-4">
+              Your trusted car marketplace in the DRC, connecting buyers and
+              sellers nationwide.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="hover:text-blue-300">Home</a></li>
+              <li>
+                <a href="Buy a car.html" class="hover:text-blue-300"
+                  >Buy a Car</a
+                >
+              </li>
+              <li>
+                <a href="Sell a car.html" class="hover:text-blue-300"
+                  >Sell a Car</a
+                >
+              </li>
+              <li>
+                <a href="about us.html" class="hover:text-blue-300">About Us</a>
+              </li>
+              <li>
+                <a href="Contact us.html" class="hover:text-blue-300"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Popular Brands</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-blue-300">Toyota</a></li>
+              <li><a href="#" class="hover:text-blue-300">Nissan</a></li>
+              <li><a href="#" class="hover:text-blue-300">Mitsubishi</a></li>
+              <li><a href="#" class="hover:text-blue-300">BMW</a></li>
+              <li><a href="#" class="hover:text-blue-300">Mercedes</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-3"></i>123 Avenue de la
+                Libération, Kinshasa, DRC
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone-alt mr-3"></i>+243 81 234 5678
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3"></i>info@showvroomdrc.com
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-6">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="mb-4 md:mb-0">
+              © 2025 The Showvroom. All rights reserved.
+            </p>
+            <div class="flex space-x-6">
+              <a href="#" class="hover:text-blue-300">Privacy Policy</a>
+              <a href="#" class="hover:text-blue-300">Terms of Service</a>
+              <a href="#" class="hover:text-blue-300">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Swiper JS for carousels -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+      // Mobile nav
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+      // Carousel for each card
+      document.querySelectorAll(".car-swiper").forEach(function (el) {
+        new Swiper(el, {
+          pagination: {
+            el: el.querySelector(".swiper-pagination"),
+            clickable: true,
+          },
+          loop: true,
+        });
+      });
+    </script>
+  </body>
+</html>

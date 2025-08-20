@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Showvroom | Buy & Sell Cars in DRC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hubot+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Hubot Sans", sans-serif;
+      }
+      .brand-bg {
+        background-color: #093667;
+      }
+      .brand-text {
+        color: #093667;
+      }
+      .cta-btn,
+      .cta-btn-outline {
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 1.125rem;
+        padding: 0.75rem 2.5rem;
+        transition: background 0.3s, color 0.3s, border 0.3s;
+      }
+      .cta-btn {
+        background: #093667;
+        color: #fff;
+      }
+      .cta-btn:hover {
+        background: #002135;
+      }
+      .cta-btn-outline {
+        color: #093667;
+        border: 2px solid #093667;
+        background: #fff;
+      }
+      .cta-btn-outline:hover {
+        background: #f3f4f6;
+      }
+      .car-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+      .article-card:hover {
+        background-color: #f7fafe;
+      }
+      .bubble {
+        border-radius: 2rem;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- HEADER -->
+    <header class="sticky top-0 z-60 bg-white shadow-md">
+      <div
+        class="container mx-auto px-8 py-6 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center">
+            <img
+              src="Logo/The ShowVroom logos TEST-11-LOGO V2.png"
+              alt="The ShowVroom Logo"
+              class="h-14 w-14 rounded-full brand-bg object-contain mr-2"
+            />
+            <span class="brand-text text-xl md:text-2xl font-bold"
+              >The Showvroom</span
+            >
+          </a>
+        </div>
+        <nav class="hidden md:flex space-x-6 items-center">
+          <a
+            href="index.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Home</a
+          >
+          <a
+            href="Buy a car.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Buy a Car</a
+          >
+          <a
+            href="Sell a car.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Sell My Car</a
+          >
+          <a
+            href="about us.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >About Us</a
+          >
+          <a
+            href="contact us.html"
+            class="text-gray-700 hover:brand-text font-medium"
+            >Contact Us</a
+          >
+        </nav>
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white py-2 px-4 shadow-lg"
+      >
+        <a href="index.html" class="block py-2 text-gray-700 hover:brand-text"
+          >Home</a
+        >
+        <a
+          href="Buy a car.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Buy a Car</a
+        >
+        <a
+          href="Sell a car.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Sell My Car</a
+        >
+        <a
+          href="Car Parts.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Car Parts</a
+        >
+        <a
+          href="about us.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >About Us</a
+        >
+        <a
+          href="Contact us.html"
+          class="block py-2 text-gray-700 hover:brand-text"
+          >Contact Us</a
+        >
+      </div>
+    </header>
+
+    <!-- SECTION 1: HERO & SEARCH -->
+    <!-- HERO SECTION with overlay -->
+    <section class="relative w-full h-screen">
+      <!-- Background Image -->
+      <img
+        src="Logo/Pictures/Happiness on the wheels.png"
+        alt="Hero Background"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <!-- Dark Overlay -->
+      <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+      <!-- Hero Content -->
+      <div
+        class="relative container mx-auto px-4 md:px-8 h-full flex flex-col justify-center items-center md:items-start text-center md:text-left text-white space-y-6"
+      >
+        <h1 class="text-4xl md:text-5xl font-bold">
+          Find your freedom on four wheels!
+        </h1>
+        <p class="text-2xl md:text-3xl font-semibold text-gray-200">
+          BUY . SELL . DRIVE.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="Buy a car.html" class="cta-btn w-full sm:w-auto text-center"
+            >Buy a Car</a
+          >
+          <a
+            href="Sell a car.html"
+            class="cta-btn-outline w-full sm:w-auto text-center"
+            >Sell My Car</a
+          >
+        </div>
+      </div>
+    </section>
+    <!-- SECTION 2: CAR LISTINGS -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center brand-text">
+          Featured Vehicles
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <!-- Car Cards (Row 1) -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md car-card transition duration-300"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=400&q=80"
+              alt="Toyota Prado"
+              class="w-full h-40 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold mb-1">Toyota Prado TX</h3>
+              <div class="flex justify-between font-semibold mb-2">
+                <span class="brand-text">$35,000</span>
+                <span class="text-gray-600">2022</span>
+              </div>
+              <div class="flex flex-wrap text-sm text-gray-600 mb-4 gap-3">
+                <span><i class="fas fa-tachometer-alt mr-1"></i> 25,000km</span>
+                <span><i class="fas fa-cog mr-1"></i> Automatic</span>
+                <span><i class="fas fa-gas-pump mr-1"></i> Diesel</span>
+              </div>
+              <a href="#" class="block text-center cta-btn-outline">More</a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md car-card transition duration-300"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=400&q=80"
+              alt="Nissan X-Trail"
+              class="w-full h-40 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold mb-1">Nissan X-Trail</h3>
+              <div class="flex justify-between font-semibold mb-2">
+                <span class="brand-text">$28,500</span>
+                <span class="text-gray-600">2021</span>
+              </div>
+              <div class="flex flex-wrap text-sm text-gray-600 mb-4 gap-3">
+                <span><i class="fas fa-tachometer-alt mr-1"></i> 42,000km</span>
+                <span><i class="fas fa-cog mr-1"></i> CVT</span>
+                <span><i class="fas fa-gas-pump mr-1"></i> Petrol</span>
+              </div>
+              <a href="#" class="block text-center cta-btn-outline">More</a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md car-card transition duration-300"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1618843479313-40f4afd4e7cb?auto=format&fit=crop&w=400&q=80"
+              alt="Mitsubishi Pajero"
+              class="w-full h-40 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold mb-1">Mitsubishi Pajero Sport</h3>
+              <div class="flex justify-between font-semibold mb-2">
+                <span class="brand-text">$32,000</span>
+                <span class="text-gray-600">2020</span>
+              </div>
+              <div class="flex flex-wrap text-sm text-gray-600 mb-4 gap-3">
+                <span><i class="fas fa-tachometer-alt mr-1"></i> 65,000km</span>
+                <span><i class="fas fa-cog mr-1"></i> Automatic</span>
+                <span><i class="fas fa-gas-pump mr-1"></i> Diesel</span>
+              </div>
+              <a href="#" class="block text-center cta-btn-outline">More</a>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Car Cards (Row 2) -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md car-card transition duration-300"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=400&q=80"
+              alt="BMW X5"
+              class="w-full h-40 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold mb-1">BMW X5 xDrive30d</h3>
+              <div class="flex justify-between font-semibold mb-2">
+                <span class="brand-text">$45,000</span>
+                <span class="text-gray-600">2021</span>
+              </div>
+              <div class="flex flex-wrap text-sm text-gray-600 mb-4 gap-3">
+                <span><i class="fas fa-tachometer-alt mr-1"></i> 38,000km</span>
+                <span><i class="fas fa-cog mr-1"></i> Automatic</span>
+                <span><i class="fas fa-gas-pump mr-1"></i> Diesel</span>
+              </div>
+              <a
+                href="Chery Tiggo 4 pro.html"
+                class="block text-center cta-btn-outline"
+                >More</a
+              >
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md car-card transition duration-300"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1616788494707-ec28f08fd05e?auto=format&fit=crop&w=400&q=80"
+              alt="Mercedes C200"
+              class="w-full h-40 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold mb-1">Mercedes C200</h3>
+              <div class="flex justify-between font-semibold mb-2">
+                <span class="brand-text">$39,500</span>
+                <span class="text-gray-600">2022</span>
+              </div>
+              <div class="flex flex-wrap text-sm text-gray-600 mb-4 gap-3">
+                <span><i class="fas fa-tachometer-alt mr-1"></i> 22,000km</span>
+                <span><i class="fas fa-cog mr-1"></i> Automatic</span>
+                <span><i class="fas fa-gas-pump mr-1"></i> Petrol</span>
+              </div>
+              <a href="#" class="block text-center cta-btn-outline">More</a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md car-card transition duration-300"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1592841200221-1901a6f557f3?auto=format&fit=crop&w=400&q=80"
+              alt="Toyota RAV4"
+              class="w-full h-40 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold mb-1">Toyota RAV4</h3>
+              <div class="flex justify-between font-semibold mb-2">
+                <span class="brand-text">$31,000</span>
+                <span class="text-gray-600">2021</span>
+              </div>
+              <div class="flex flex-wrap text-sm text-gray-600 mb-4 gap-3">
+                <span><i class="fas fa-tachometer-alt mr-1"></i> 45,000km</span>
+                <span><i class="fas fa-cog mr-1"></i> Automatic</span>
+                <span><i class="fas fa-gas-pump mr-1"></i> Hybrid</span>
+              </div>
+              <a href="#" class="block text-center cta-btn-outline">More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELL A CAR SECTION -->
+    <section class="py-12 bg-white">
+      <div
+        class="container mx-auto px-4 flex flex-col lg:flex-row items-center lg:space-x-10"
+      >
+        <img
+          src="Cars/Weby/Untitled (14).png"
+          alt="Sell Your Car"
+          class="w-full lg:w-1/2 rounded-3xl mb-8 lg:mb-0 shadow-lg object-cover"
+        />
+        <div class="flex-1">
+          <h2 class="brand-text text-3xl font-bold mb-4">
+            Sell Your Car Quickly & Easily
+          </h2>
+          <ol class="list-decimal list-inside text-gray-700 mb-6 space-y-2">
+            <li>Submit your car’s details and photos.</li>
+            <li>Get a free, instant valuation based on DRC market trends.</li>
+            <li>Accept our offer—get paid, we handle the paperwork!</li>
+          </ol>
+          <a href="Sell a car.html" class="cta-btn">Sell a Car</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: ARTICLE BUBBLES -->
+    <section class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center brand-text">
+          Everything Cars
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div
+            class="bg-white rounded-3xl overflow-hidden shadow-md article-card flex md:flex-row items-center bubble transition duration-200"
+          >
+            <img
+              src="Logo/Pictures/RRS_SV_Carbon_Face_On_16x9_8K_SH002_PR.webp"
+              alt="Range Rover Sport"
+              class="w-full md:w-40 h-40 object-cover"
+            />
+            <div class="p-6 flex-1">
+              <h3 class="text-xl font-bold mb-2">
+                The Range Rover Sport SV Carbon
+              </h3>
+              <a
+                href="Range Rover Sport.html"
+                class="text-blue-800 hover:underline font-medium"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-3xl overflow-hidden shadow-md article-card flex md:flex-row items-center bubble transition duration-200"
+          >
+            <img
+              src="Logo/Pictures/GWM POER300.webp"
+              alt="GWM Article"
+              class="w-full md:w-40 h-40 object-cover"
+            />
+            <div class="p-6 flex-1">
+              <h3 class="text-xl font-bold mb-2">
+                A new haevy weight on the block
+              </h3>
+              <a href="#" class="text-blue-800 hover:underline font-medium"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            class="bg-white rounded-3xl overflow-hidden shadow-md article-card flex md:flex-row items-center bubble transition duration-200"
+          >
+            <img
+              src="Logo/Pictures/Nissan Micra 06.webp"
+              alt="Nissan Micra Article"
+              class="w-full md:w-40 h-40 object-cover"
+            />
+            <div class="p-6 flex-1">
+              <h3 class="text-xl font-bold mb-2">New Supermini:Nissan Micra</h3>
+              <a href="#" class="text-blue-800 hover:underline font-medium"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-3xl overflow-hidden shadow-md article-card flex md:flex-row items-center bubble transition duration-200"
+          >
+            <img
+              src="Logo/Pictures/rh_i8_roadtrip_3.webp"
+              alt="BMWI8 Article"
+              class="w-full md:w-40 h-40 object-cover"
+            />
+            <div class="p-6 flex-1">
+              <h3 class="text-xl font-bold mb-2">Electric Sporty</h3>
+              <a href="#" class="text-blue-800 hover:underline font-medium"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CAR PARTS RESELL SECTION -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4 md:px-8">
+        <h2 class="text-3xl font-bold mb-8 text-center brand-text">
+          Car Parts Marketplace
+        </h2>
+        <p class="text-lg text-gray-700 text-center mb-10">
+          Buy and sell quality car parts & accessories across the DRC. Only
+          genuine parts, from trusted sellers.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
+          <!-- Sample car part card -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md transition hover:shadow-lg"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1515929008649-14dbe62c0be0?auto=format&fit=crop&w=400&q=80"
+              alt="Brake Pads"
+              class="w-full h-36 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold mb-2">Brake Pads (Toyota)</h3>
+              <div class="brand-text font-semibold mb-2">From $40</div>
+              <div class="text-gray-600 text-sm mb-3">New & used available</div>
+              <a
+                href="Brake Pads (Toyota).html"
+                class="block text-center cta-btn-outline"
+                >View Part</a
+              >
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md transition hover:shadow-lg"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80"
+              alt="Car Battery"
+              class="w-full h-36 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold mb-2">Car Battery (Nissan)</h3>
+              <div class="brand-text font-semibold mb-2">From $55</div>
+              <div class="text-gray-600 text-sm mb-3">
+                Tested and guaranteed
+              </div>
+              <a href="#" class="block text-center cta-btn-outline"
+                >View Part</a
+              >
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md transition hover:shadow-lg"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1511715281207-70bdee4c9a91?auto=format&fit=crop&w=400&q=80"
+              alt="Engine Oil"
+              class="w-full h-36 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-bold mb-2">Engine Oil (Castrol)</h3>
+              <div class="brand-text font-semibold mb-2">From $25</div>
+              <div class="text-gray-600 text-sm mb-3">
+                High performance oils
+              </div>
+              <a href="#" class="block text-center cta-btn-outline"
+                >View Part</a
+              >
+            </div>
+          </div>
+          <!-- Add more parts as needed -->
+        </div>
+        <div class="flex justify-center">
+          <a href="Car Parts.html" class="cta-btn">More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADVERTISEMENT SECTION (Above Footer) -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center brand-text">
+          Our Partners
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+          <div class="flex justify-center">
+            <img
+              src="https://via.placeholder.com/150x80?text=Partner+1"
+              alt="Partner 1"
+              class="h-16 object-contain"
+            />
+          </div>
+          <div class="flex justify-center">
+            <img
+              src="https://via.placeholder.com/150x80?text=Partner+2"
+              alt="Partner 2"
+              class="h-16 object-contain"
+            />
+          </div>
+          <div class="flex justify-center">
+            <img
+              src="https://via.placeholder.com/150x80?text=Partner+3"
+              alt="Partner 3"
+              class="h-16 object-contain"
+            />
+          </div>
+          <div class="flex justify-center">
+            <img
+              src="https://via.placeholder.com/150x80?text=Partner+4"
+              alt="Partner 4"
+              class="h-16 object-contain"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6 mt-6">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">The Showvroom</h3>
+            <p class="mb-4">
+              Your trusted car marketplace in the DRC, connecting buyers and
+              sellers nationwide.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="hover:text-blue-300"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="hover:text-blue-300">Home</a></li>
+              <li>
+                <a href="Buy a car.html" class="hover:text-blue-300"
+                  >Buy a Car</a
+                >
+              </li>
+              <li>
+                <a href="Sell a car.html" class="hover:text-blue-300"
+                  >Sell a Car</a
+                >
+              </li>
+              <li>
+                <a href="Car Parts.html" class="hover:text-blue-300"
+                  >Car Parts</a
+                >
+              </li>
+              <li>
+                <a href="about us.html" class="hover:text-blue-300">About Us</a>
+              </li>
+              <li>
+                <a href="Contact us.html" class="hover:text-blue-300"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Popular Brands</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-blue-300">Toyota</a></li>
+              <li><a href="#" class="hover:text-blue-300">Nissan</a></li>
+              <li><a href="#" class="hover:text-blue-300">Mitsubishi</a></li>
+              <li><a href="#" class="hover:text-blue-300">BMW</a></li>
+              <li><a href="#" class="hover:text-blue-300">Mercedes</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-3"></i>123 Avenue de la
+                Libération, Kinshasa, DRC
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone-alt mr-3"></i>+243 81 234 5678
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3"></i>info@showvroomdrc.com
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-6">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="mb-4 md:mb-0">
+              © 2025 The Showvroom. All rights reserved.
+            </p>
+            <div class="flex space-x-6">
+              <a href="#" class="hover:text-blue-300">Privacy Policy</a>
+              <a href="#" class="hover:text-blue-300">Terms of Service</a>
+              <a href="#" class="hover:text-blue-300">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Mobile menu toggle
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
+  </body>
+</html>
