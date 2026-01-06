@@ -53,41 +53,16 @@
         padding: 2rem;
         margin-bottom: 2rem;
       }
-      .vehicle-type-label {
-        cursor: pointer;
-        border: 2px solid transparent;
-        border-radius: 1rem;
-        padding: 1.5rem 1rem;
-        text-align: center;
-        transition: border-color 0.3s;
-        user-select: none;
-      }
-      .vehicle-type-label:hover {
-        border-color: #06294d;
-      }
-      input[type="radio"]:checked + .vehicle-type-label {
-        border-color: #06294d;
-        background-color: #73adec;
-        color: #06294d;
-      }
-      input[type="radio"] {
-        display: none;
-      }
       .error {
         border-color: #e3342f !important;
       }
-      .progress-bar {
-        height: 6px;
-        background: #d1d5db;
-        border-radius: 3px;
-        overflow: hidden;
-        margin-bottom: 1.5rem;
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
       }
-      .progress-bar-inner {
-        height: 6px;
-        background: #093667;
-        width: 0%;
-        transition: width 0.3s;
+      .full-width {
+        grid-column: 1 / -1;
       }
     </style>
   </head>
@@ -159,190 +134,189 @@
       </div>
     </header>
 
-    <main class="container mx-auto px-4 max-w-3xl py-10">
-      <h1 class="text-3xl font-bold brand-text mb-6 text-center">
-        Sell Your Car
+    <main class="container mx-auto px-4 max-w-4xl py-10">
+      <h1 class="text-3xl font-bold brand-text mb-8 text-center">
+        Sell Your Car - Quick Form
       </h1>
 
-      <div class="progress-bar">
-        <div class="progress-bar-inner" id="progress"></div>
+      <div class="section-card">
+        <form
+          id="sell-vehicle-form"
+          action="send_mail.php"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <h2 class="text-2xl font-bold brand-text mb-8">Complete Your Details</h2>
+          
+          <!-- Seller Information -->
+          <div class="mb-10">
+            <h3 class="text-xl font-semibold brand-text mb-6">Your Contact Details</h3>
+            <div class="form-grid">
+              <input
+                type="text"
+                name="seller_name"
+                placeholder="Full Name *"
+                required
+                class="border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-brand-bg focus:border-transparent"
+              />
+              <input
+                type="email"
+                name="seller_email"
+                placeholder="Email *"
+                required
+                class="border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-brand-bg focus:border-transparent"
+              />
+              <input
+                type="tel"
+                name="seller_phone"
+                placeholder="Phone Number *"
+                required
+                class="border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-brand-bg focus:border-transparent"
+              />
+              <input
+                type="text"
+                name="seller_city"
+                placeholder="City *"
+                required
+                class="border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-brand-bg focus:border-transparent"
+              />
+            </div>
+          </div>
+
+          <!-- Vehicle Details -->
+          <div class="mb-10">
+            <h3 class="text-xl font-semibold brand-text mb-6">Vehicle Information</h3>
+            <div class="form-grid">
+              <input
+                type="text"
+                name="make"
+                placeholder="Make *"
+                required
+                class="border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-brand-bg focus:border-transparent"
+              />
+              <input
+                type="text"
+                name="model"
+                placeholder="Model *"
+                required
+                class="border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-brand-bg focus:border-transparent"
+              />
+              <input
+                type="number"
+                name="year"
+                placeholder="Year *"
+                min="1900"
+                max="2026"
+                required
+                class="border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-brand-bg focus:border-transparent"
+              />
+              <input
+                type="number"
+                name="mileage"
+                placeholder="Mileage (km)"
+                min="0"
+                class="border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-brand-bg focus:border-transparent"
+              />
+              <input
+                type="number"
+                name="price"
+                placeholder="Asking Price (ZAR) *"
+                min="0"
+                required
+                class="border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-brand-bg focus:border-transparent"
+              />
+              <select 
+                name="transmission" 
+                required 
+                class="border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-brand-bg focus:border-transparent"
+              >
+                <option value="">Transmission *</option>
+                <option value="Automatic">Automatic</option>
+                <option value="Manual">Manual</option>
+              </select>
+              <select 
+                name="fuel_type" 
+                required 
+                class="border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-brand-bg focus:border-transparent"
+              >
+                <option value="">Fuel Type *</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="Electric">Electric</option>
+              </select>
+              <select 
+                name="condition" 
+                required 
+                class="border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-brand-bg focus:border-transparent"
+              >
+                <option value="">Condition *</option>
+                <option value="Used">Used</option>
+                <option value="New">New</option>
+              </select>
+              <input
+                type="number"
+                name="number_of_seats"
+                placeholder="Number of Seats *"
+                min="1"
+                max="12"
+                required
+                class="border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-brand-bg focus:border-transparent"
+              />
+              <input
+                type="text"
+                name="vin_number"
+                placeholder="VIN (Vehicle Identification Number) *"
+                maxlength="17"
+                required
+                class="border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-brand-bg focus:border-transparent"
+              />
+              <textarea
+                name="vehicle_features"
+                placeholder="Vehicle Features (e.g. Air Conditioning, Leather Seats, Sunroof, etc.)"
+                rows="4"
+                class="full-width border border-gray-300 rounded-lg p-4 focus:ring-2 focus:ring-brand-bg focus:border-transparent resize-vertical"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Photos Upload -->
+          <div class="mb-10">
+            <h3 class="text-xl font-semibold brand-text mb-6">Vehicle Photos</h3>
+            <p class="text-gray-600 mb-4">Upload at least 8 clear photos of your vehicle (exterior, interior, engine, etc.)</p>
+            <input
+              type="file"
+              name="images[]"
+              accept="image/*"
+              multiple
+              required
+              class="border-2 border-dashed border-gray-300 rounded-lg p-8 w-full text-center hover:border-brand-bg hover:bg-gray-50 transition-colors"
+            />
+            <p class="text-sm text-gray-500 mt-2">Max 10 photos, JPG/PNG, up to 5MB each</p>
+          </div>
+
+          <!-- Submit Section -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-end pt-6 border-t border-gray-200">
+            <button type="reset" class="cta-btn-outline px-8">Reset Form</button>
+            <button type="submit" class="cta-btn px-12">
+              <i class="fas fa-paper-plane mr-2"></i>
+              Submit My Listing
+            </button>
+          </div>
+        </form>
       </div>
-
-      <form
-        id="sell-vehicle-form"
-        action="send_mail.php"
-        method="POST"
-        enctype="multipart/form-data"
-        class="space-y-10"
-      >
-        <!-- Step 1: Seller Info -->
-        <section class="section-card" id="step-1">
-          <h2 class="text-2xl font-bold brand-text mb-4">
-            Step 1: Your Details
-          </h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input
-              type="text"
-              name="seller_name"
-              placeholder="Full Name *"
-              required
-              class="border rounded-lg p-3"
-            />
-            <input
-              type="email"
-              name="seller_email"
-              placeholder="Email *"
-              required
-              class="border rounded-lg p-3"
-            />
-            <input
-              type="tel"
-              name="seller_phone"
-              placeholder="Phone Number *"
-              required
-              class="border rounded-lg p-3"
-            />
-            <input
-              type="text"
-              name="seller_city"
-              placeholder="City *"
-              required
-              class="border rounded-lg p-3"
-            />
-          </div>
-          <div class="mt-6 flex justify-end">
-            <button type="button" id="to-step-2" class="cta-btn">Next</button>
-          </div>
-        </section>
-
-        <!-- Step 2: Vehicle Info -->
-        <section class="section-card hidden" id="step-2">
-          <h2 class="text-2xl font-bold brand-text mb-4">
-            Step 2: Vehicle Details
-          </h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input
-              type="text"
-              name="make"
-              placeholder="Make *"
-              required
-              class="border rounded-lg p-3"
-            />
-            <input
-              type="text"
-              name="model"
-              placeholder="Model *"
-              required
-              class="border rounded-lg p-3"
-            />
-            <input
-              type="number"
-              name="year"
-              placeholder="Year *"
-              required
-              class="border rounded-lg p-3"
-            />
-            <input
-              type="number"
-              name="mileage"
-              placeholder="Mileage (km)"
-              class="border rounded-lg p-3"
-            />
-            <input
-              type="number"
-              name="price"
-              placeholder="Asking Price *"
-              required
-              class="border rounded-lg p-3"
-            />
-            <select name="transmission" required class="border rounded-lg p-3">
-              <option value="">Transmission *</option>
-              <option value="Automatic">Automatic</option>
-              <option value="Manual">Manual</option>
-            </select>
-            <select name="fuel_type" required class="border rounded-lg p-3">
-              <option value="">Fuel Type *</option>
-              <option value="Petrol">Petrol</option>
-              <option value="Diesel">Diesel</option>
-              <option value="Hybrid">Hybrid</option>
-              <option value="Electric">Electric</option>
-            </select>
-            <select name="condition" required class="border rounded-lg p-3">
-              <option value="">Condition *</option>
-              <option value="Used">Used</option>
-              <option value="New">New</option>
-            </select>
-
-            <!-- Added Fields -->
-            <input
-              type="number"
-              name="number_of_seats"
-              placeholder="Number of Seats *"
-              min="1"
-              max="12"
-              required
-              class="border rounded-lg p-3"
-            />
-            <input
-              type="text"
-              name="vin_number"
-              placeholder="VIN (Vehicle Identification Number) *"
-              maxlength="17"
-              required
-              class="border rounded-lg p-3"
-            />
-            <textarea
-              name="vehicle_features"
-              placeholder="Vehicle Features (e.g. Air Conditioning, Leather Seats, Sunroof)"
-              rows="3"
-              class="border rounded-lg p-3 col-span-2"
-            ></textarea>
-          </div>
-          <div class="mt-6 flex justify-between">
-            <button type="button" id="back-step-2" class="cta-btn-outline">
-              Back
-            </button>
-            <button type="button" id="to-step-3" class="cta-btn">Next</button>
-          </div>
-        </section>
-
-        <!-- Step 3: Upload Images -->
-        <section class="section-card hidden" id="step-3">
-          <h2 class="text-2xl font-bold brand-text mb-4">
-            Step 3: Upload Photos
-          </h2>
-          <p class="text-gray-600 mb-4">
-            Upload at least 8 photos of your vehicle.
-          </p>
-          <input
-            type="file"
-            name="images[]"
-            accept="image/*"
-            multiple
-            required
-            class="border p-2 rounded-lg w-full"
-          />
-          <div class="mt-6 flex justify-between">
-            <button type="button" id="back-step-3" class="cta-btn-outline">
-              Back
-            </button>
-            <button type="submit" class="cta-btn">Submit</button>
-          </div>
-        </section>
-      </form>
     </main>
+
     <!-- ADVERTISEMENT BANNER -->
-    <section
-      class="flex justify-center my-10"
-      style="margin-left: 100px; margin-right: 100px"
-    >
+    <section class="flex justify-center my-10">
       <img
         src="Advertisement/contact-us-ad-600x160.png"
         alt="Ad Banner"
-        class="rounded-xl shadow-lg w-[600px] h-[160px] object-cover"
-        style="max-width: 100%; height: 160px"
+        class="rounded-xl shadow-lg w-[600px] h-[160px] object-cover max-w-full"
+        style="height: 160px"
       />
     </section>
+
     <!-- FOOTER -->
     <footer class="bg-gray-900 text-white pt-12 pb-6 mt-6">
       <div class="container mx-auto px-4">
@@ -440,64 +414,51 @@
         .addEventListener("click", function () {
           document.getElementById("mobile-menu").classList.toggle("hidden");
         });
-    </script>
-    <script>
-      const progress = document.getElementById("progress");
-      const step1 = document.getElementById("step-1");
-      const step2 = document.getElementById("step-2");
-      const step3 = document.getElementById("step-3");
 
-      document.getElementById("to-step-2").onclick = () => {
-        // Validate step 1 required fields
-        let valid = true;
-        step1.querySelectorAll("input").forEach((f) => {
-          if (f.hasAttribute("required") && !f.value.trim()) {
-            f.classList.add("error");
-            valid = false;
+      // Form validation and submission
+      document
+        .getElementById("sell-vehicle-form")
+        .addEventListener("submit", function (e) {
+          let isValid = true;
+          const requiredFields = this.querySelectorAll("[required]");
+          
+          requiredFields.forEach((field) => {
+            if (!field.value.trim()) {
+              field.classList.add("error");
+              isValid = false;
+            } else {
+              field.classList.remove("error");
+            }
+          });
+
+          // Check file input has files
+          const fileInput = this.querySelector('input[type="file"]');
+          if (fileInput.files.length === 0) {
+            fileInput.classList.add("error");
+            isValid = false;
           } else {
-            f.classList.remove("error");
+            fileInput.classList.remove("error");
           }
-        });
-        if (!valid) {
-          alert("Please fill in all required personal details.");
-          return;
-        }
-        step1.classList.add("hidden");
-        step2.classList.remove("hidden");
-        progress.style.width = "50%";
-      };
 
-      document.getElementById("back-step-2").onclick = () => {
-        step2.classList.add("hidden");
-        step1.classList.remove("hidden");
-        progress.style.width = "0%";
-      };
-
-      document.getElementById("to-step-3").onclick = () => {
-        // Validate vehicle info fields
-        let valid = true;
-        step2.querySelectorAll("input, select").forEach((f) => {
-          if (f.hasAttribute("required") && !f.value.trim()) {
-            f.classList.add("error");
-            valid = false;
-          } else {
-            f.classList.remove("error");
+          if (!isValid) {
+            e.preventDefault();
+            alert("Please complete all required fields and upload photos before submitting.");
+            return false;
           }
-        });
-        if (!valid) {
-          alert("Please fill in all required vehicle fields.");
-          return;
-        }
-        step2.classList.add("hidden");
-        step3.classList.remove("hidden");
-        progress.style.width = "100%";
-      };
 
-      document.getElementById("back-step-3").onclick = () => {
-        step3.classList.add("hidden");
-        step2.classList.remove("hidden");
-        progress.style.width = "50%";
-      };
+          // Visual feedback
+          const submitBtn = this.querySelector('button[type="submit"]');
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...';
+          submitBtn.disabled = true;
+        });
+
+      // Clear error on input
+      document.querySelectorAll('input, select, textarea').forEach(field => {
+        field.addEventListener('input', function() {
+          this.classList.remove('error');
+        });
+      });
     </script>
   </body>
 </html>
